@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-09-12T21:14:24.981510+00:00",
+  "platform": "Linux aarch64",
+  "python": "3.13.4",
+  "mojo": "1.0.0 (ed45d567)",
+  "dependencies": {
+    "Pillow": "12.3.0",
+    "numpy": "2.4.2",
+    "scipy": "1.18.1"
+  },
+  "tests_passed": 13,
+  "fresh_clone_install_build_test": "passed before dependency patch; full suite rerun after patch",
+  "model_sha256": "a092f06597aadd0ed5d487e33bcccb99ac971877cfefd225386a198d2806a808",
+  "benchmark": {
+    "renderings": 84,
+    "changed_predictions_vs_original": 0,
+    "cer": 0.02956738250855898,
+    "wer": 0.12427409988385599,
+    "median_warm_seconds": 0.045021035002719145,
+    "scope": "Same synthetic development corpus. Not independent real-document evaluation."
+  },
+  "publication_audit": "Tracked text and model metadata reviewed; synthetic PNGs have no embedded metadata. No personal paths, credentials, local outputs, archives, environments, or native binaries included."
+}
