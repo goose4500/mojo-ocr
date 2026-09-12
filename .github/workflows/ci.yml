@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm]
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+        with:
+          python-version: "3.13"
+      - name: Install test fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core fonts-liberation fonts-freefont-ttf
+      - name: Install pinned Mojo compiler
+        run: |
+          uv venv --python 3.13 .venv
+          uv pip install --python .venv/bin/python 'mojo==1.0.0'
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
+      - name: Build native library and install dependencies
+        run: |
+          ./setup.sh
+          uv pip install --python .venv/bin/python -r requirements-dev.txt
+      - name: Check style and syntax
+        run: |
+          .venv/bin/ruff check .
+          .venv/bin/ruff format --check .
+          node --check ui.js
+          bash -n setup.sh ocr
+          git diff --check
+      - name: Run numerical, document, and HTTP tests
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+        run: .venv/bin/python -m unittest discover -s tests -v
+      - name: Check CLI and bundled example
+        run: |
+          ./ocr --version
+          ./ocr read examples/note.png

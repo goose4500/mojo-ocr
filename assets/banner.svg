@@ -1,0 +1,66 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1200"
+  height="360"
+  viewBox="0 0 1200 360"
+  role="img"
+  aria-labelledby="title description"
+>
+  <title id="title">Mojo OCR</title>
+  <desc id="description">
+    Private OCR, built from scratch in Mojo. Local-first. Small by design. Open
+    to build on.
+  </desc>
+  <rect width="1200" height="360" rx="24" fill="#f5f6f2" />
+  <g transform="translate(66 78)">
+    <rect width="108" height="108" rx="26" fill="#21684f" />
+    <g
+      fill="none"
+      stroke="#f5f6f2"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M23 39V24h15m32 0h15v15M23 69v15h15m32 0h15V69" />
+      <path d="M38 69V40l16 19 16-19v29" />
+    </g>
+  </g>
+  <text
+    x="211"
+    y="126"
+    fill="#21684f"
+    font-family="Arial, sans-serif"
+    font-size="15"
+    font-weight="700"
+    letter-spacing="4"
+  >
+    LOCAL-FIRST · FROM-SCRATCH · OPEN SOURCE
+  </text>
+  <text
+    x="208"
+    y="192"
+    fill="#263531"
+    font-family="Georgia, serif"
+    font-size="70"
+  >
+    Mojo OCR
+  </text>
+  <text
+    x="68"
+    y="264"
+    fill="#52695b"
+    font-family="Arial, sans-serif"
+    font-size="28"
+  >
+    Private OCR, built from scratch in Mojo.
+  </text>
+  <text
+    x="68"
+    y="306"
+    fill="#718078"
+    font-family="Arial, sans-serif"
+    font-size="17"
+  >
+    A small model. A useful workspace. A foundation you can build on.
+  </text>
+</svg>

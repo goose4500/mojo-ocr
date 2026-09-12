@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-12T20:39:22.040171+00:00",
+  "machine": "aarch64",
+  "python": "3.13.4",
+  "mojo": "Mojo 1.0.0 (ed45d567)",
+  "tests_passed": 10,
+  "unittest_output": "test_dark_mode_rotation_deskew (test_ocr.ImagingTests.test_dark_mode_rotation_deskew) ... ok\ntest_edit_distance (test_ocr.ImagingTests.test_edit_distance) ... ok\ntest_runs_and_blank_images (test_ocr.ImagingTests.test_runs_and_blank_images) ... ok\ntest_independent_note (test_ocr.IntegrationTests.test_independent_note) ... ok\ntest_multipage_and_corrections (test_ocr.IntegrationTests.test_multipage_and_corrections) ... ok\ntest_read_pdf_review_index_search (test_ocr.IntegrationTests.test_read_pdf_review_index_search) ... ok\ntest_backprop_and_momentum_match_numpy (test_ocr.NativeTests.test_backprop_and_momentum_match_numpy) ... ok\ntest_checkpoint_and_synthesis (test_ocr.NativeTests.test_checkpoint_and_synthesis) ... ok\ntest_forward_matches_numpy (test_ocr.NativeTests.test_forward_matches_numpy) ... ok\ntest_sgd_learns_and_validation_rejects_bad_buffers (test_ocr.NativeTests.test_sgd_learns_and_validation_rejects_bad_buffers) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 3.646s\n\nOK\n",
+  "cli_scratch_training_smoke": "passed: 188 samples, 2 epochs, checkpoint load",
+  "cli_finetuning_smoke": "passed: resume, correction import, checkpoint load (synthetic plumbing test only)",
+  "browser_review": {
+    "result": "passed",
+    "cards": 58,
+    "image_loaded": true,
+    "changed_labels_exported": 1,
+    "feature_bytes": 768,
+    "filename": "corrections.json",
+    "note": "Tested via temporary loopback HTTP server in Chrome; download blob inspected without writing to the Windows Downloads folder. Server stopped and test tabs closed."
+  },
+  "model_sha256": "a092f06597aadd0ed5d487e33bcccb99ac971877cfefd225386a198d2806a808"
+}

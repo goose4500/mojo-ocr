@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-09-12T20:53:53.940771+00:00",
+  "passed": 13,
+  "output": "test_dark_mode_rotation_deskew (test_ocr.ImagingTests.test_dark_mode_rotation_deskew) ... ok\ntest_edit_distance (test_ocr.ImagingTests.test_edit_distance) ... ok\ntest_runs_and_blank_images (test_ocr.ImagingTests.test_runs_and_blank_images) ... ok\ntest_independent_note (test_ocr.IntegrationTests.test_independent_note) ... ok\ntest_multipage_and_corrections (test_ocr.IntegrationTests.test_multipage_and_corrections) ... ok\ntest_read_pdf_review_index_search (test_ocr.IntegrationTests.test_read_pdf_review_index_search) ... ok\ntest_backprop_and_momentum_match_numpy (test_ocr.NativeTests.test_backprop_and_momentum_match_numpy) ... ok\ntest_checkpoint_and_synthesis (test_ocr.NativeTests.test_checkpoint_and_synthesis) ... ok\ntest_forward_matches_numpy (test_ocr.NativeTests.test_forward_matches_numpy) ... ok\ntest_sgd_learns_and_validation_rejects_bad_buffers (test_ocr.NativeTests.test_sgd_learns_and_validation_rejects_bad_buffers) ... ok\ntest_invalid_upload_and_busy (test_ui.UITests.test_invalid_upload_and_busy) ... ok\ntest_page_and_security_boundaries (test_ui.UITests.test_page_and_security_boundaries) ... ok\ntest_upload_export_and_clear (test_ui.UITests.test_upload_export_and_clear) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 5.464s\n\nOK\n",
+  "browser": {
+    "example_upload_and_ocr": "passed",
+    "text_edit_and_download_blob": "passed: Room 204 changed to Room 205; original JSON unchanged",
+    "searchable_pdf": "HTTP 200 application/pdf",
+    "character_box_toggle": "passed",
+    "mobile_390px": "visually inspected; no horizontal overflow",
+    "desktop": "visually inspected"
+  },
+  "scope": "Browser export blob was inspected without saving a download; HTTP tests verify PDF bytes, image and multipage PDF uploads, clear, upload limits, busy response and same-origin protection."
+}

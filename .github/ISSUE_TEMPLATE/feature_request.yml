@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose a focused improvement to the local OCR workflow.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What user problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach and alternatives
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: How would we know it works?
+      description: Useful tests, quality metrics, or workflow improvements. Do not include private documents.

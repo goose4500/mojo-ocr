@@ -1,0 +1,21 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="80"
+  height="80"
+  viewBox="0 0 80 80"
+  role="img"
+  aria-labelledby="title"
+>
+  <title id="title">Mojo OCR scan mark</title>
+  <rect width="80" height="80" rx="20" fill="#21684f" />
+  <g
+    fill="none"
+    stroke="#f5f6f2"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M17 29V18h11m24 0h11v11M17 51v11h11m24 0h11V51" />
+    <path d="M28 51V30l12 14 12-14v21" />
+  </g>
+</svg>

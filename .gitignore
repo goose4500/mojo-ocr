@@ -1,0 +1,43 @@
+# Local tools and build products
+.venv/
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+*.dll
+*.tmp
+*.log
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+.pi/
+.idea/
+.vscode/
+node_modules/
+
+# Secrets and personal inputs/outputs: never publish these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.sqlite3*
+*.db
+input/
+inputs/
+data/
+output/
+outputs/
+corrections*.json
+*.review.html
+*.overlay.png
+*.searchable.pdf
+
+# Local checkpoints, retaining only the audited synthetic baseline
+models/*
+!models/print-v1.npz
+!models/print-v1.training.json
+
+# Regenerable benchmark renderings; retain the public baseline report
+benchmarks/*.png
+benchmarks/*.txt

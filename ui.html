@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mojo OCR · Private OCR, built from scratch</title>
+    <meta
+      name="description"
+      content="Private OCR, built from scratch in Mojo. A local workspace for your images, screenshots, and PDFs."
+    />
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui.css" />
+    <script src="/ui.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/"
+        ><span class="brandmark"
+          ><svg width="40" height="40" viewBox="0 0 80 80" aria-hidden="true">
+            <g
+              fill="none"
+              stroke="#f5f6f2"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 29V18h11m24 0h11v11M17 51v11h11m24 0h11V51" />
+              <path d="M28 51V30l12 14 12-14v21" />
+            </g></svg></span
+        ><span>Mojo OCR<small>PRIVATE OCR. BUILT FROM SCRATCH.</small></span></a
+      ><span class="local"><i></i> Local & private</span>
+    </header>
+    <main>
+      <section class="intro">
+        <div class="eyebrow">POWERED BY MOJO 1.0</div>
+        <h1>From pixels to something useful.</h1>
+        <p>
+          Turn screenshots, scans, and PDFs into text you can copy, edit, and
+          keep.
+        </p>
+      </section>
+      <div class="workspace">
+        <aside class="panel sidebar">
+          <div class="section-label">
+            <span class="step">1</span> Add a document
+          </div>
+          <label id="drop" class="drop" for="file" tabindex="0">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 16V3m-5 5 5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"
+              />
+            </svg>
+            <strong id="file-name">Drop a file here</strong
+            ><span id="file-detail">or click to browse</span
+            ><small>Images or PDF · up to 25 MiB / 20 pages</small>
+          </label>
+          <input
+            id="file"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff,.pdf"
+            class="visually-hidden"
+          />
+          <div class="upload-hint">
+            You can also paste an image with Ctrl+V.
+          </div>
+          <button id="example" class="text-button">Try an example ↗</button>
+          <div class="divider"></div>
+          <div class="section-label">
+            <span class="step">2</span> Make it readable
+          </div>
+          <label class="field"
+            >Recognition mode<select id="mode">
+              <option value="text">Text & numbers</option>
+              <option value="numbers">Numbers & amounts only</option>
+            </select></label
+          >
+          <details>
+            <summary>Image adjustments</summary>
+            <div class="adjustments">
+              <div class="field-row">
+                <label class="field"
+                  >Rotate<select id="rotate">
+                    <option value="0">None</option>
+                    <option value="90">90° left</option>
+                    <option value="180">180°</option>
+                    <option value="270">90° right</option>
+                  </select></label
+                ><label class="field"
+                  >PDF resolution<select id="dpi">
+                    <option value="150">150 DPI</option>
+                    <option value="200">200 DPI</option>
+                    <option value="300">300 DPI</option>
+                  </select></label
+                >
+              </div>
+              <label class="check"
+                ><input type="checkbox" id="deskew" /> Straighten slightly
+                tilted text</label
+              ><label class="check"
+                ><input type="checkbox" id="adaptive" /> Correct uneven
+                lighting</label
+              >
+            </div>
+          </details>
+          <button id="extract" class="primary" disabled>
+            <span id="extract-label">Extract text</span
+            ><span aria-hidden="true">→</span>
+          </button>
+          <p id="status" class="status" role="status" aria-live="polite">
+            Connecting to your local model…
+          </p>
+          <div id="error" class="error" role="alert" hidden></div>
+          <div class="sidebar-foot">
+            <span class="chip">CPU · offline</span
+            ><span id="model-name">Loading model</span>
+          </div>
+        </aside>
+        <section class="panel results" aria-label="OCR results">
+          <div class="result-head">
+            <div>
+              <div class="section-label">
+                <span class="step">3</span> Review & export
+              </div>
+              <h2 id="result-title">Your text starts here</h2>
+            </div>
+            <button id="clear" class="quiet" disabled>Clear</button>
+          </div>
+          <div id="empty" class="empty">
+            <div class="paper">
+              <span></span><span></span><span></span><span></span><b>Aa</b>
+            </div>
+            <h3>Less retyping. More doing.</h3>
+            <p>
+              Add a document on the left.<br />Your preview and editable text
+              will appear here.
+            </p>
+            <div class="usecases">
+              <span>Screenshots</span><span>Receipts</span
+              ><span>Documents</span>
+            </div>
+          </div>
+          <div id="result" hidden>
+            <div class="result-toolbar">
+              <label class="page-label"
+                >Page
+                <select id="page" aria-label="Page"></select></label
+              ><span id="metrics"></span
+              ><label class="check boxes"
+                ><input type="checkbox" id="boxes" /> Show character
+                boxes</label
+              >
+            </div>
+            <div class="split">
+              <div class="preview-pane">
+                <div class="pane-label">DOCUMENT PREVIEW</div>
+                <a
+                  id="preview-link"
+                  target="_blank"
+                  rel="noopener"
+                  title="Open larger preview"
+                  ><img id="preview" alt="Processed document preview"
+                /></a>
+                <div class="legend" id="legend" hidden>
+                  <span class="green-dot"></span> Higher confidence
+                  <span class="red-dot"></span> Check this glyph
+                </div>
+              </div>
+              <div class="text-pane">
+                <div class="pane-label">
+                  EXTRACTED TEXT <span id="edited" hidden>EDITED</span>
+                </div>
+                <textarea
+                  id="text"
+                  spellcheck="false"
+                  aria-label="Extracted text"
+                  placeholder="No text detected. Try rotating the page or adjusting the image settings."
+                ></textarea>
+                <div class="text-footer">
+                  <span id="character-count"></span
+                  ><button id="copy" class="quiet">Copy text</button>
+                </div>
+              </div>
+            </div>
+            <div class="downloads">
+              <button id="download-text" class="secondary">↓ Text</button
+              ><a id="download-pdf" class="secondary" download
+                >↓ Searchable PDF</a
+              ><a id="download-json" class="quiet" download
+                >Original OCR JSON</a
+              >
+            </div>
+            <p class="export-note">
+              Text download includes your edits on all pages. PDF and JSON
+              contain the original OCR results.
+            </p>
+          </div>
+        </section>
+      </div>
+      <footer>
+        <span
+          ><strong>A private workspace.</strong> No cloud services. Clear
+          removes temporary server results; stopping the server also removes
+          them. Downloads stay on your device.</span
+        ><span
+          >Experimental printed-ASCII model. Please verify important text and
+          numbers.</span
+        >
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+def read_file(path):
+    return open(path).read()
+count = 42 # local only
