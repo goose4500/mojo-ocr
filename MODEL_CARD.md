@@ -25,6 +25,8 @@ This is a real neural classifier trained from seeded random He-initialized weigh
 
 Font files are not redistributed. The examples are synthetic raster images. Dependencies and fonts remain subject to their own licenses.
 
+The original training and recorded benchmark used Pillow 12.1.1. The public runtime now pins **Pillow 12.3.0** to address known upstream security advisories. The baseline weights were not regenerated. A publication-time rerun with the patched dependency produced identical text predictions on all 84 benchmark renderings and passed all 13 application/numerical/HTTP tests; see `tests/publication-validation.json`. The original timing report remains historical, not a promise about the current runtime.
+
 ## Evaluation
 
 | Evaluation | Result |

@@ -4,7 +4,8 @@ Notable user-facing changes are recorded here. Versioning starts with the experi
 
 ## Unreleased
 
-- No changes recorded yet.
+- Upgrade Pillow from 12.1.1 to 12.3.0 to resolve upstream security advisories. Baseline weights are unchanged; all 84 development-benchmark predictions remain identical.
+- Pin current Node 24 GitHub Actions to avoid deprecated action runtimes.
 
 ## 0.1.0 — initial foundation
 
